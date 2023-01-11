@@ -3,7 +3,7 @@
   "main": "app/index.js",
   "type": "module",
   "scripts": {
-    "db": "json-server --watch db.json",
+    "db": "json-server --watch db.json --port3001",
     "test": "vitest"
   },
   "devDependencies": {
