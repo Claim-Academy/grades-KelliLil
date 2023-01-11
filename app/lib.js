@@ -1,1 +1,2 @@
-export const getAllStudentNames = (names) => names.map((grades) => grades.name);
+export const getAllStudentNames = (roster) =>
+  roster.map((person) => person.name);
