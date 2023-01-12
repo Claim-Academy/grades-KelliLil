@@ -34,3 +34,30 @@ export const addGrade = (roster, gradeType, score, studentID) => {
     grades: newStudentGrades,
   };
 };
+
+export const updateGrade = ({ roster, gradeID, updatedScore, studentID }) => {
+  const foundStudent = getStudentById(roster, studentID);
+  const updatedGrades = foundStudent.grades.map((grade) => {
+    if (grade.id === gradeID) {
+      return {
+        ...grade,
+        score: updatedScore,
+      };
+    }
+
+    return grade;
+  });
+
+  foundStudent.grades = [...updatedGrades];
+
+  const updatedRoster = roster.map((student) => {
+    if (student.id === studentID) {
+      return foundStudent;
+    }
+
+    return student;
+  });
+
+  return updatedRoster;
+};
+
