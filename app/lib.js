@@ -9,3 +9,12 @@ export const getStudentGradeID = ({ roster, gradeID, studentID }) => {
   const foundGrade = foundStudent.grades.find((grade) => grade.id === gradeID);
   return { ...foundGrade, name: foundStudent.name };
 };
+
+export const getStudentGradesByType = (roster, gradeType, studentID) => {
+  const studentFind = getStudentById(roster, studentID);
+  const foundStudentGrade = studentFind.grades.filter(
+    (grade) => grade.type === gradeType
+  );
+
+  return { grades: foundStudentGrade, name: studentFind.name };
+};
