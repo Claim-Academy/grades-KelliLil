@@ -50,16 +50,7 @@ export const updateGrade = ({ roster, gradeID, updatedScore, studentID }) => {
 
   foundStudent.grades = [...updatedGrades];
 
-  const updatedRoster = roster.map((student) => {
-    if (student.id === studentID) {
-      return foundStudent;
-    }
-
-    return student;
-  });
-
-  return updatedRoster;
-};
+return foundStudent;
 
 export const deleteGrade = ({ roster, gradeID, studentID }) => {
   const foundStudent = getStudentById(roster, studentID);
