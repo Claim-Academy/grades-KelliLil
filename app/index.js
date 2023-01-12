@@ -4,4 +4,4 @@ const gradesData = await apiService.getStudent();
 
 console.log(gradesData);
 
-console.log(getAllStudentNames);
+console.log(getAllStudentNames(gradesData));
