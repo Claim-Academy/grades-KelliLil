@@ -70,3 +70,10 @@ export const deleteGrade = ({ roster, gradeID, studentID }) => {
 
   return updatedRoster;
 };
+
+export const getStudentMajor = ({roster, major, studentID}) => {
+  const foundStudent = getStudentById(roster, studentID);
+  const filterMajor = foundStudent.grades.filter((student) => student.major === major)
+
+  return {grades: filterMajor, name: foundStudent.name}
+}
