@@ -1,7 +1,12 @@
 import apiService from "./api.service.js";
-import { getAllStudentNames } from "./lib.js";
+import { addGrade } from "./lib.js";
 const gradesData = await apiService.getStudent();
 
-console.log(gradesData);
+const updatedStudent = addGrade({
+  roster: gradesData,
+  gradeType: "HW",
+  score: 100,
+  studentId: 1,
+});
 
-console.log(getAllStudentNames(gradesData));
+apiService.updateStudent(1, updatedStudent);
